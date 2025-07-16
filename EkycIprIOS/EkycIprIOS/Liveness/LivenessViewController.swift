@@ -90,14 +90,26 @@ class LivenessViewController: UIViewController {
                             }
                         }
                     case .failure(let fail):
+                        Task {
+                            try await IprLivenessManager.verifyFace(transactionId: transactionId)
+                        }
                         SVProgressHUD.dismiss()
                         Constants.Alert.showErrorAlert(self, message: fail.localizedDescription)
                     case .error(let error):
+                        Task {
+                            try await IprLivenessManager.verifyFace(transactionId: transactionId)
+                        }
                         SVProgressHUD.dismiss()
                         Constants.Alert.showErrorAlert(self, message: error.localizedDescription)
                     case .processing:
                         SVProgressHUD.show()
-                    default:
+                    case .connecting:
+                        SVProgressHUD.show()
+                    case .connected:
+                        SVProgressHUD.dismiss()
+                    case .canceled:
+                        SVProgressHUD.dismiss()
+                    @unknown default:
                         SVProgressHUD.dismiss()
                     }
                     print("🔹 Got status: \(status)")
