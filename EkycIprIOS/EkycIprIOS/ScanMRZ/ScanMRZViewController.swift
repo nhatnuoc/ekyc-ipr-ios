@@ -90,11 +90,11 @@ class ScanMRZViewController: UIViewController {
     }
     
     @IBAction func nextBtnTapped(_ sender: Any) {
-        guard let cardNumber = cardNumberTxt.text, cardNumber.count == 9 else {
+        guard let cardNumber = cardNumberTxt.text, cardNumber.count >= 9 else {
             Constants.Alert.showErrorAlert(self, message: "Vui lòng kiểm tra lại số CCCD của bạn, và nhập đủ 9 số cuối.")
             return
         }
-        CardManager.cardNumber = cardNumber
+        CardManager.cardNumber = String(cardNumber.suffix(9))
         CardManager.dob = dobTxt.text
         CardManager.doe = doeString
         
@@ -128,7 +128,7 @@ extension ScanMRZViewController : StoryboardInitialization {
 
 extension ScanMRZViewController: QKMRZScannerViewDelegate {
     func mrzScannerView(_ mrzScannerView: QKMRZScannerView, didFind scanResult: QKMRZScanResult) {
-        cardNumberTxt.text = scanResult.documentNumber
+        cardNumberTxt.text = String(scanResult.personalNumber.prefix(12))
        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd/MM/yyyy"

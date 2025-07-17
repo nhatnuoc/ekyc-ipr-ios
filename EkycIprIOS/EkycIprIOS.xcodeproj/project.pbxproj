@@ -248,6 +248,7 @@
 				DEVELOPMENT_TEAM = 2V3Y2Q9V3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EkycIprIOS/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NFCReaderUsageDescription = "ứng dụng cần scan nfc để đọc thông tin từ thẻ căn cước công dân";
 				INFOPLIST_KEY_NSCameraUsageDescription = "ứng dụng cần sử dụng camera để quét mã mrz căn cước công dân và thực hiện liveness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -282,6 +283,7 @@
 				DEVELOPMENT_TEAM = 2V3Y2Q9V3G;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = EkycIprIOS/Info.plist;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NFCReaderUsageDescription = "ứng dụng cần scan nfc để đọc thông tin từ thẻ căn cước công dân";
 				INFOPLIST_KEY_NSCameraUsageDescription = "ứng dụng cần sử dụng camera để quét mã mrz căn cước công dân và thực hiện liveness";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
